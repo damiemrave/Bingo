@@ -10,8 +10,18 @@
         <h1>Bingo de la Clase</h1>
         <fieldset>
             <legend>Lista de Participantes</legend>
-            <label for="lista">Introduce los nombres separados por comas:</label><br>
-            <input type="text" id="lista" placeholder="Ej: Ana, Pedro, Luis"><br><br>
+            <div class="lista-container">
+                <input type="text" id="lista" placeholder="Ej: Ana, Pedro, Luis">
+
+                <select id="grupos">
+                    <option value="none">Selecciona un grupo</option>
+                    <option value="Alumno 1, Alumno 2, Alumno 3">Alumnos</option>
+                    <option value="Brian, Damiem, Sergio">Nombres</option>
+                    <option value="Rojo, Verde, Azul">Colores</option>
+                    <option value="⬛, ▲, ♥">Formas</option>
+                </select>
+            </div>
+
             <button id="submit">Generar Cartones</button>
         </fieldset>
     </div>
