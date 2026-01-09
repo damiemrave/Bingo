@@ -1,0 +1,131 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+}
+
+.inicio-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 100px auto;
+    padding: 30px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+.inicio-container input {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+.inicio-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    background-color: #0077cc;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.inicio-container button:hover {
+    background-color: #005fa3;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #0077cc;
+    color: white;
+}
+
+header .botones button {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    background-color: #fff;
+    color: #0077cc;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+header .botones button:hover {
+    background-color: #e0e0e0;
+}
+
+#historial {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+#container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.carton {
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+    width: 250px;
+    height: 200px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.carton h2 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.carton table {
+    width: 100%;
+    height: 75%;
+    border-collapse: collapse;
+}
+
+.carton td {
+    position: relative;
+    width: 20%;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.marcado::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: rgba(255, 0, 21, 0.5);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+
+.marcado.linea::before {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+
+.carton.bingo td.marcado::before {
+    background-color: rgba(255, 215, 0, 0.5);
+}
+
+.marcado span.numero {
+    position: relative;
+    z-index: 1;
+}
