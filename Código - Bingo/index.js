@@ -2,7 +2,8 @@ const submitBtn = document.getElementById('submit');
 const inputLista = document.getElementById('lista');
 
 submitBtn.addEventListener('click', () => {
-    const lista = inputLista.value.trim();
+    const lista = inputLista.value.split(",").map(p => p.trim()).filter(p => p !== "");
+
     if(lista === "") {
         alert("Debes escribir al menos un nombre.");
         return;
