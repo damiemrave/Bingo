@@ -22,7 +22,7 @@ submitBtn.addEventListener('click', () => {
     const lista = inputLista.value.split(",").map(p => p.trim()).filter(p => p !== "");
 
     // Comprobación de que la lista no este vacia
-    if(lista === "") {
+    if(lista.length === 0) {
         alert("Debes escribir al menos un nombre.");
         return;
     }
@@ -33,4 +33,5 @@ submitBtn.addEventListener('click', () => {
 
     // Redireccion a la pagina del bingo
     window.location.href = "bingo.html";
+
 });
