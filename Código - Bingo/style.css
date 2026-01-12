@@ -133,13 +133,11 @@ header .botones button:hover {
     z-index: 0;
 }
 
-
 .marcado.linea::before {
     background-color: rgba(0, 128, 0, 0.5);
 }
 
-
-.carton.bingo td.marcado::before {
+.carton.bingo td.marcado::before, .marcado.primeralinea::before {
     background-color: rgba(255, 215, 0, 0.5);
 }
 
