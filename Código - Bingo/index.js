@@ -15,6 +15,7 @@ selectGrupos.addEventListener("change", () => {
 });
 
 
+// Evento que se ejecuta al pulsar el boton
 submitBtn.addEventListener('click', () => {
     // Se obtiene el valor del input y se separa por comas
     // Con la funcion trim() se elimina espacios y filter evita que los nombres esten vacios
