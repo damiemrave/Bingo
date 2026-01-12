@@ -10,6 +10,10 @@ let ultNumero = document.getElementById('ultNumero');
 let historial = document.getElementById('historial');
 let btnSalir = document.getElementById('salir');
 
+// Declaración de variables para que solo haya una línea y un solo bingo.
+let primeraLinea = false;
+let primerBingo = false;
+
 // Para cada participante se crea dinamicamente su carton
 participantes.forEach(nombre => {
     crearCarton(nombre.trim());
@@ -119,7 +123,7 @@ function comprobarLogro(){
         // Comprobacion de bingo completo
         if(!carton.classList.contains('bingo')){
 
-            if (totalMarcadas === 15) {
+            if (!primerBingo && totalMarcadas === 15) {
                 carton.classList.add('bingo');
                 alert("Bingo completo de " + nombre + "!");
             
@@ -127,6 +131,10 @@ function comprobarLogro(){
             
                 let celdasMarcadas = carton.querySelectorAll('td.marcado');
                 celdasMarcadas.forEach(td => td.classList.remove('linea'));
+                primerBingo = true;
+
+                // Como ha habido bingo, desaparece el botón de 'Sacar Número' para que se acabe el juego.
+                btnSacarNumero.style.display = 'none';
                 return;
             }
             
@@ -135,10 +143,17 @@ function comprobarLogro(){
                 let celdas = tr.querySelectorAll('td');
                 let marcadas = tr.querySelectorAll('td.marcado');
             
-                if(celdas.length === marcadas.length && !tr.classList.contains('linea')){
-                    tr.classList.add('linea');
-                    marcadas.forEach(td => td.classList.add('linea')); 
-                    alert("Línea completa de " + nombre + "!");
+                if (celdas.length === marcadas.length && !tr.classList.contains('linea') && !tr.classList.contains('primeralinea')) {
+                    // Si es la primera línea aparece un alert y la línea se rellena de amarillo. Si no, se rellena de verde.
+                    if(!primeraLinea){
+                        tr.classList.add('primeralinea');
+                        marcadas.forEach(td => td.classList.add('primeralinea')); 
+                        alert("Línea completa de " + nombre + "!");
+                        primeraLinea = true;
+                    } else {
+                        tr.classList.add('linea');
+                        marcadas.forEach(td => td.classList.add('linea')); 
+                    }
                 }
             });
     }
@@ -159,8 +174,14 @@ function reiniciarJuego(){
         container.removeChild(container.firstChild);
     }
 
+    primeraLinea = false;
+    primerBingo = false;
+
     // Creacion de nuevos cartones
     participantes.forEach(nombre => crearCarton(nombre.trim()));
+
+    btnSacarNumero.style.display = 'inline-block';
+
 }
 
 // Eventos de botones
