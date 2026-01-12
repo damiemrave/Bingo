@@ -36,6 +36,20 @@ body {
     background-color: #005fa3;
 }
 
+.lista-container {
+    display: flex;
+    gap: 10px;
+}
+
+#lista {
+    flex: 1;
+}
+
+#grupos {
+    min-width: 180px;
+}
+
+
 header {
     text-align: center;
     padding: 20px;
@@ -69,6 +83,10 @@ header .botones button:hover {
     justify-content: center;
     gap: 20px;
     padding: 20px;
+}
+
+#submit {
+    margin-top: 15px;
 }
 
 .carton {

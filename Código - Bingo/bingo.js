@@ -27,21 +27,23 @@ function crearCarton(nombre){
 
     // Tabla que representa el carton
     let carton = document.createElement('table');
-    
+
     // Array para guardar numeros aleatorios no repetidos
     let numeros = [];
     while (numeros.length < 15) {
         let numero = Math.floor(Math.random() * 90) + 1;
-        if (!numeros.includes(numero)) numeros.push(numero);
+        if (!numeros.includes(numero)) {
+            numeros.push(numero);
+        }
     }
-
+    
     // Creacion de filas y celdas del carton
     let indice = 0;
     for (let i = 0; i < 3; i++) {
         let tr = document.createElement('tr');
         for (let j = 0; j < 5; j++) {
             let td = document.createElement('td');
-
+    
             // Span que contiene el numero visible
             let spanNumero = document.createElement('span');
             spanNumero.textContent = numeros[indice];
@@ -65,7 +67,9 @@ function crearCarton(nombre){
 
 // Creacion del bombo con numeros del 1 al 90
 let bombo = [];
-for (let i = 1; i <= 90; i++) bombo.push(i);
+for (let i = 1; i <= 90; i++) {
+    bombo.push(i);
+}
 
 // Funcion para sacar un numero del bombo
 function sacarNumero(){
@@ -117,7 +121,7 @@ function comprobarLogro(){
 
             if (totalMarcadas === 15) {
                 carton.classList.add('bingo');
-                alert("¡BINGO completo de " + nombre + "!");
+                alert("Bingo completo de " + nombre + "!");
             
                 carton.style.border = "3px solid #FFD700";
             
@@ -134,7 +138,7 @@ function comprobarLogro(){
                 if(celdas.length === marcadas.length && !tr.classList.contains('linea')){
                     tr.classList.add('linea');
                     marcadas.forEach(td => td.classList.add('linea')); 
-                    alert("¡LÍNEA completa de " + nombre + "!");
+                    alert("Línea completa de " + nombre + "!");
                 }
             });
     }

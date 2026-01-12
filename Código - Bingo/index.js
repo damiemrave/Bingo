@@ -1,6 +1,19 @@
 // Obtiene tanto el boton como la lista
 const submitBtn = document.getElementById('submit');
 const inputLista = document.getElementById('lista');
+const selectGrupos = document.getElementById('grupos');
+
+// Evento que se ejecuta al pulsar el boton
+selectGrupos.addEventListener("change", () => {
+    // Comprobación de la selección de grupos predeterminados.
+    if (selectGrupos.value !== "" && selectGrupos.value !== "none") {
+        // Se añade el grupo predeterminado al input.
+        inputLista.value = selectGrupos.value;
+    } else {
+        inputLista.value = "";
+    }
+});
+
 
 // Evento que se ejecuta al pulsar el boton
 submitBtn.addEventListener('click', () => {
@@ -13,6 +26,7 @@ submitBtn.addEventListener('click', () => {
         alert("Debes escribir al menos un nombre.");
         return;
     }
+
     // Se guarda la lista de participantes en localStorage
     // para poder usarla en la pagina del bingo
     localStorage.setItem("listaParticipantes", lista);
